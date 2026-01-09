@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinanceFlow">
         <activity
+            android:name=".ui.extrato.ExtratoScreen"
+            android:exported="false"
+            android:label="@string/title_activity_extrato_screen"
+            android:theme="@style/Theme.FinanceFlow" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"

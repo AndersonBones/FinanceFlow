@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FinanceFlow</string>
+    <string name="title_activity_extrato_screen">ExtratoScreen</string>
 </resources>
