@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "834728641292",
+    "project_id": "financeflow-6e464",
+    "storage_bucket": "financeflow-6e464.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:834728641292:android:28f1c14f642e1ca8333f29",
+        "android_client_info": {
+          "package_name": "br.edu.utfpr.financeflow"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDOWmvfDUtv0MWZ17-GrMWixlt8GCv1sI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
