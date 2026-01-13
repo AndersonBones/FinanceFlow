@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">FinanceFlow</string>
     <string name="title_activity_extrato_screen">ExtratoScreen</string>
+    <string name="title_activity_extrato_item">ExtratoItem</string>
+    <string name="title_activity_extrato_header">ExtratoHeader</string>
+    <string name="title_activity_indicador_valor">IndicadorValor</string>
 </resources>
