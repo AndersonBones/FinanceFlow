@@ -1,47 +1,75 @@
 package br.edu.utfpr.financeflow.ui.extrato
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import br.edu.utfpr.financeflow.ui.extrato.ui.theme.FinanceFlowTheme
+import androidx.compose.ui.unit.dp
+import br.edu.utfpr.financeflow.model.Movimentacao
+import br.edu.utfpr.financeflow.ui.theme.FinanceFlowTheme
 
-class ExtratoScreen : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            FinanceFlowTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+@Composable
+fun ExtratoScreen(
+    movimentacoes: List<Movimentacao>,
+    saldo: Double,
+    totalCredito: Double,
+    totalDebito: Double,
+    onAddClick: () -> Unit
+) {
+    Scaffold(
+        floatingActionButton = {
+            FloatingActionButton(onClick = onAddClick) {
+                Icon(
+                    imageVector = Icons.Default.Add,
+                    contentDescription = "Adicionar lançamento"
+                )
+            }
+        }
+    ) { padding ->
+
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(padding)
+        ) {
+
+            ExtratoHeader(
+                saldo = saldo,
+                totalCredito = totalCredito,
+                totalDebito = totalDebito
+            )
+
+            Divider()
+
+            LazyColumn(
+                modifier = Modifier.fillMaxSize(),
+                contentPadding = PaddingValues(16.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                items(movimentacoes) { movimentacao ->
+                    ExtratoItem(movimentacao)
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun ExtratoScreenPreview() {
     FinanceFlowTheme {
-        Greeting("Android")
+        ExtratoScreen(
+            movimentacoes = fakeMovimentacoes,
+            saldo = 2670.0,
+            totalCredito = 4300.0,
+            totalDebito = 1630.0,
+            onAddClick = {}
+        )
     }
 }
