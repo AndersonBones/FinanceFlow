@@ -9,6 +9,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import br.edu.utfpr.financeflow.model.Movimentacao
 import br.edu.utfpr.financeflow.model.TipoLancamento
+import br.edu.utfpr.financeflow.ui.extrato.ui.theme.FundoCredito
+import br.edu.utfpr.financeflow.ui.extrato.ui.theme.FundoDebito
+import br.edu.utfpr.financeflow.ui.extrato.ui.theme.VerdeCredito
+import br.edu.utfpr.financeflow.ui.extrato.ui.theme.VermelhoDebito
 import br.edu.utfpr.financeflow.ui.theme.*
 import java.text.SimpleDateFormat
 import java.util.Date

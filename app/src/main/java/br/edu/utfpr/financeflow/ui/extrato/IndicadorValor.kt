@@ -11,11 +11,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.room.util.copy
 import br.edu.utfpr.financeflow.model.TipoLancamento
+import br.edu.utfpr.financeflow.ui.extrato.ui.theme.VerdeCredito
+import br.edu.utfpr.financeflow.ui.extrato.ui.theme.VermelhoDebito
 import br.edu.utfpr.financeflow.ui.theme.FinanceFlowTheme
-import br.edu.utfpr.financeflow.ui.theme.VerdeCredito
-import br.edu.utfpr.financeflow.ui.theme.VermelhoDebito
-
 @Composable
 fun IndicadorValor(
     valor: Double,

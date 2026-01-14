@@ -10,16 +10,18 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
+import br.edu.utfpr.financeflow.ui.extrato.ui.theme.BlueOcean
+import br.edu.utfpr.financeflow.ui.extrato.ui.theme.WhiteBackground
 
 private val DarkColorScheme = darkColorScheme(
-    primary = FinanceColor.BlueOcean,
-    secondary = FinanceColor.WhiteBackground,
+    primary = BlueOcean,
+    secondary = WhiteBackground,
 
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = FinanceColor.BlueOcean,
-    secondary = FinanceColor.WhiteBackground,
+    primary = BlueOcean,
+    secondary = WhiteBackground,
 
 
     /* Other default colors to override

@@ -22,4 +22,9 @@
     <string name="cancel_label_date_picker">Cancel</string>
     <string name="select_date_labe_date_picker">Select Date</string>
 
+
+    <string name="title_activity_indicador_valor">Indicador Valor</string>
+    <string name="title_activity_extrato_header">Extrato Header</string>
+    <string name="title_activity_extrato_item">Extrato Item</string>
+
 </resources>

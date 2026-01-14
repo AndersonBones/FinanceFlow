@@ -13,15 +13,6 @@ object FinanceColor{
 
     // Cores personalizadas
 
-    val BlueOcean = Color(0xFF137FEC)
-    val WhiteBackground = Color(0xFFF4F7F9)
-
-
-    val GreenCredit = Color(0xFF2E7D32) // cor do texto
-    val RedDebit = Color(0xFFC62828) // cor do texto
-
-    val GreenCreditBackground = Color(0x262E7D32)   // 15% de opacidade
-    val RedDebitBackground = Color(0x26C62828)
 }
 
 

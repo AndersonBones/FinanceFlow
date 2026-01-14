@@ -51,6 +51,8 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 import br.edu.utfpr.financeflow.R
+import br.edu.utfpr.financeflow.ui.extrato.ui.theme.BlueOcean
+import br.edu.utfpr.financeflow.ui.extrato.ui.theme.WhiteBackground
 import br.edu.utfpr.financeflow.ui.theme.FinanceColor
 import br.edu.utfpr.financeflow.viewmodel.NewTransactionViewModel
 
@@ -120,7 +122,7 @@ object NewTransaction{
         Button(
             onClick = {},
             colors = ButtonDefaults.buttonColors(
-                containerColor = FinanceColor.BlueOcean
+                containerColor = BlueOcean
             )
         ) {
             Row (
@@ -165,7 +167,7 @@ object NewTransaction{
 
             TextField(
                 modifier = Modifier
-                    .background(color = FinanceColor.WhiteBackground)
+                    .background(color = WhiteBackground)
                     .fillMaxWidth()
                     .border(1.dp, color = Color.Transparent, shape = RoundedCornerShape(5.dp)),
                 value = viewModel.amount,
@@ -180,11 +182,11 @@ object NewTransaction{
 
                 colors = OutlinedTextFieldDefaults.colors(
 
-                    disabledBorderColor = FinanceColor.BlueOcean,
+                    disabledBorderColor = BlueOcean,
 
-                    focusedBorderColor = FinanceColor.BlueOcean,
+                    focusedBorderColor = BlueOcean,
 
-                    cursorColor = FinanceColor.BlueOcean,
+                    cursorColor = BlueOcean,
 
                 ),
 
@@ -210,7 +212,7 @@ object NewTransaction{
                     shape = RoundedCornerShape(5.dp)
                 )
                 .background(
-                    color = FinanceColor.WhiteBackground,
+                    color =WhiteBackground,
                     shape = RoundedCornerShape(5.dp)
                 )
                 .padding(8.dp),
@@ -223,7 +225,7 @@ object NewTransaction{
                     .height(50.dp),
 
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = FinanceColor.BlueOcean
+                    containerColor = BlueOcean
                 )
             ) {
                 Text(
@@ -239,7 +241,7 @@ object NewTransaction{
 
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color.Transparent,
-                    contentColor = FinanceColor.BlueOcean
+                    contentColor = BlueOcean
                 )
 
 
@@ -271,7 +273,7 @@ object NewTransaction{
             TextField(
                 modifier = modifier
                     .fillMaxWidth()
-                    .background(color = FinanceColor.WhiteBackground),
+                    .background(color = WhiteBackground),
                 value = viewModel.description,
                 onValueChange = { newValue-> viewModel.setOnChangeDescription(newDescription = newValue) },
                 maxLines = 4,
@@ -283,9 +285,9 @@ object NewTransaction{
                 },
 
                 colors = OutlinedTextFieldDefaults.colors(
-                    disabledBorderColor = FinanceColor.BlueOcean,
-                    focusedBorderColor = FinanceColor.BlueOcean,
-                    cursorColor = FinanceColor.BlueOcean,
+                    disabledBorderColor = BlueOcean,
+                    focusedBorderColor = BlueOcean,
+                    cursorColor = BlueOcean,
                 ),
 
                 keyboardOptions = KeyboardOptions(
@@ -307,7 +309,7 @@ object NewTransaction{
                 .height(55.dp),
 
             colors = ButtonDefaults.buttonColors(
-                containerColor = FinanceColor.BlueOcean
+                containerColor = BlueOcean
             )
         ) {
             Text(
