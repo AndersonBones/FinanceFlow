@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FinanceFlow</string>
+    <string name="title_activity_extrato_screen">ExtratoScreen</string>
+    <string name="title_activity_add_transaction">New Transaction</string>
+    <string name="back_button_add_transaction">Back</string>
+
+
+    <string name="amount_label_add_transaction">Enter Amount</string>
+    <string name="amount_label_cipher">$ 0.00</string>
+
+    <string name="debit_transaction_option_add_transaction">Debit</string>
+    <string name="credit_transaction_option_add_transaction">Credit</string>
+
+    <string name="save_transaction_add_transaction">Save Transaction</string>
+
+    <string name="enter_amount_label_add_transaction">Enter amount</string>
+
+    <string name="enter_description_add_transaction">Enter a Transaction Description</string>
+
+    <string name="confirm_label_date_picker">Confirm</string>
+    <string name="cancel_label_date_picker">Cancel</string>
+    <string name="select_date_labe_date_picker">Select Date</string>
+
+</resources>

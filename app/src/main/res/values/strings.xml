@@ -1,4 +1,22 @@
 <resources>
     <string name="app_name">FinanceFlow</string>
     <string name="title_activity_extrato_screen">ExtratoScreen</string>
+    <string name="title_activity_add_transaction">Nova Transação</string>
+    <string name="back_button_add_transaction">Voltar</string>
+
+    <string name="amount_label_add_transaction">Valor Total</string>
+    <string name="amount_label_cipher">R$ 0,00</string>
+
+    <string name="debit_transaction_option_add_transaction">Débito</string>
+    <string name="credit_transaction_option_add_transaction">Crédito</string>
+
+    <string name="save_transaction_add_transaction">Salvar Transação</string>
+    
+    <string name="enter_amount_label_add_transaction">Digite o Valor</string>
+
+    <string name="enter_description_add_transaction">Descrição da Transação</string>
+
+    <string name="confirm_label_date_picker">Confirmar</string>
+    <string name="cancel_label_date_picker">Cancelar</string>
+    <string name="select_date_labe_date_picker">Selecionar Data</string>
 </resources>
