@@ -12,36 +12,19 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 
 import androidx.compose.foundation.text.KeyboardOptions
-
-import androidx.compose.foundation.text.input.rememberTextFieldState
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-
 import androidx.compose.material3.Button
-
 import androidx.compose.material3.ButtonDefaults
-
-import androidx.compose.material3.Icon
-import androidx.compose.material3.OutlinedTextField
-
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
-
 import androidx.compose.runtime.Composable
-
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
-
 import androidx.compose.ui.graphics.Color
-
 import androidx.compose.ui.res.stringResource
-
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
@@ -49,21 +32,23 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-
 import br.edu.utfpr.financeflow.R
+import br.edu.utfpr.financeflow.model.Movimentacao
+import br.edu.utfpr.financeflow.model.TipoLancamento
 import br.edu.utfpr.financeflow.ui.extrato.ui.theme.BlueOcean
 import br.edu.utfpr.financeflow.ui.extrato.ui.theme.WhiteBackground
-import br.edu.utfpr.financeflow.ui.theme.FinanceColor
 import br.edu.utfpr.financeflow.viewmodel.NewTransactionViewModel
+import java.util.UUID
 
 object NewTransaction{
     @Composable
     fun Main(
         modifier: Modifier = Modifier,
-        viewModel: NewTransactionViewModel = viewModel()
+        viewModel: NewTransactionViewModel = viewModel(),
+        onNavigateToDeveloper: ()-> Unit
     ) {
         Column(
-            modifier,
+            modifier = modifier.border(1.dp, color = Color.Red),
             verticalArrangement = Arrangement.SpaceBetween
         ) {
             Header(modifier = Modifier)
@@ -80,8 +65,19 @@ object NewTransaction{
 
             DescriptionTransaction(modifier = Modifier, viewModel)
 
+            Row (
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceEvenly,
+                verticalAlignment = Alignment.CenterVertically
+            ){
+                ListTransactions()
+                SaveTransactionButton(
+                    modifier = Modifier,
+                    viewModel = viewModel
+                )
 
-            SaveTransactionButton()
+            }
+
 
         }
     }
@@ -99,7 +95,7 @@ object NewTransaction{
 
         ) {
 
-           // BackButton()
+
 
             Text(
                 modifier = Modifier.weight(1f),
@@ -118,28 +114,19 @@ object NewTransaction{
     }
 
     @Composable
-    fun BackButton(modifier: Modifier = Modifier) {
+    fun ListTransactions(modifier: Modifier = Modifier) {
         Button(
             onClick = {},
             colors = ButtonDefaults.buttonColors(
-                containerColor = BlueOcean
-            )
+                containerColor = BlueOcean,
+
+            ),
+            modifier = modifier.height(55.dp)
         ) {
-            Row (
-                modifier = modifier,
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ){
-                Icon(
-                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                    contentDescription = stringResource(R.string.back_button_add_transaction)
-                )
 
-                Text(
-                    text = stringResource(R.string.back_button_add_transaction)
-                )
-
-            }
+            Text(
+                text = stringResource(R.string.list_transactions_button_add_transaction)
+            )
         }
     }
 
@@ -204,6 +191,9 @@ object NewTransaction{
 
     @Composable
     fun TransactionOption(modifier: Modifier = Modifier, viewModel: NewTransactionViewModel) {
+
+        
+
         Row(
             modifier
                 .border(
@@ -219,7 +209,7 @@ object NewTransaction{
             horizontalArrangement = Arrangement.spacedBy(4.dp)
         ) {
             Button(
-                onClick = {},
+                onClick = {viewModel.setOnChangeTransaction(viewModel.amount, newTransaction = TipoLancamento.DEBITO)},
                 modifier
                     .weight(1f)
                     .height(50.dp),
@@ -234,7 +224,7 @@ object NewTransaction{
             }
 
             Button(
-                onClick = {},
+                onClick = {viewModel.setOnChangeTransaction(viewModel.amount, newTransaction = TipoLancamento.CREDITO)},
                 modifier
                     .weight(1f)
                     .height(50.dp),
@@ -280,7 +270,7 @@ object NewTransaction{
                 minLines = 1,
                 placeholder = {
                     Text(
-                        text = stringResource(R.string.enter_description_add_transaction)
+                        text = stringResource(R.string.hint_description_add_transaction)
                     )
                 },
 
@@ -300,12 +290,28 @@ object NewTransaction{
     }
 
     @Composable
-    fun SaveTransactionButton(modifier: Modifier = Modifier) {
+    fun SaveTransactionButton(
+        modifier: Modifier = Modifier,
+        viewModel: NewTransactionViewModel
+    ) {
+
         Button(
 
-            onClick = {},
+            onClick = {
+                // Converte apenas no momento do clique
+                val valor = viewModel.amount.toDoubleOrNull() ?: 0.0
+
+                val newTransaction = Movimentacao(
+                    _id = UUID.randomUUID().toString(),
+                    valorLancamento = valor,
+                    tipoLancamento = viewModel.transaction,
+                    descricao = viewModel.description,
+                    data = viewModel.date
+                )
+
+                viewModel.setNewTransaction(newTransaction)
+            },
             modifier = Modifier
-                .fillMaxWidth()
                 .height(55.dp),
 
             colors = ButtonDefaults.buttonColors(
@@ -326,7 +332,10 @@ object NewTransaction{
 @Preview
 @Composable
 private fun MainPreview() {
-    NewTransaction.Main(modifier = Modifier)
+    NewTransaction.Main(
+        modifier = Modifier,
+        onNavigateToDeveloper = {}
+    )
 }
 
 

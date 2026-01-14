@@ -43,7 +43,10 @@ class MainActivity : ComponentActivity() {
                     .wrapContentHeight(Alignment.Top)
                 ) {
 
-                    NewTransaction.Main(modifier = Modifier.fillMaxSize())
+                    NewTransaction.Main(
+                        modifier = Modifier.fillMaxSize(),
+                        onNavigateToDeveloper = {}
+                    )
 
                 }
 

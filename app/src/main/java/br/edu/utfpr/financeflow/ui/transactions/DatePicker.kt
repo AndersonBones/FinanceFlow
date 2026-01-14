@@ -60,7 +60,7 @@ object DatePicker {
                     onDismissRequest = { showDatePicker = false },
                     confirmButton = {
                         TextButton(onClick = {
-                            viewModel.setOnChangeDate(datePickerState.selectedDateMillis)
+                            viewModel.setOnChangeDate(datePickerState.selectedDateMillis!!)
                             showDatePicker = false
                         }) {
                             Text(stringResource(R.string.confirm_label_date_picker))
