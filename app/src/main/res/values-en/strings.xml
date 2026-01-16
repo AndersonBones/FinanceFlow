@@ -27,6 +27,7 @@
     <string name="title_activity_indicador_valor">Indicador Valor</string>
     <string name="title_activity_extrato_header">Extrato Header</string>
     <string name="title_activity_extrato_item">Extrato Item</string>
+    <string name="current_balance_label_extrato_screen">Current Balance</string>
 
     <string name="msg_confirm_new_transaction">Transaction completed successfully.</string>
 
