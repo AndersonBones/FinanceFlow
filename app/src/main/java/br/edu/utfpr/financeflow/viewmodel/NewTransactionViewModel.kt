@@ -22,9 +22,6 @@ class NewTransactionViewModel: ViewModel() {
     var date:Long by mutableStateOf(System.currentTimeMillis())
         private set
 
-
-
-
     fun setOnChangeTransaction(newAmount:String, newTransaction: TipoLancamento){
         this.transaction = newTransaction
     }
@@ -40,10 +37,17 @@ class NewTransactionViewModel: ViewModel() {
         this.date = newDate
     }
 
+    fun resetFields() {
+        amount = ""
+        description = ""
+        date = System.currentTimeMillis()
+        transaction = TipoLancamento.DEBITO
+    }
 
-    fun setNewTransaction(transaction: Movimentacao){
+    fun setNewTransaction(transaction: Movimentacao, onSuccess: () -> Unit){
         viewModelScope.launch {
             db.inserir(transaction)
+            onSuccess()
         }
     }
 }
